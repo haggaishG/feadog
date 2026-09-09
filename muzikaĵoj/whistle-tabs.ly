@@ -26,6 +26,11 @@
 #(define whistle-D
    '(#t #t #t #t #t #t))
 
+% Upper octave D
+% Top hole open, all others closed
+#(define whistle-D-high
+   '(#f #t #t #t #t #t))
+
 #(define whistle-Eb
    '(#t #t #t #t #t #f))
 
@@ -227,8 +232,20 @@
        ((pitch
          (ly:music-property note 'pitch))
 
-        (fingering
+        (pitch-class
+         (whistle-pitch-class pitch))
+
+        (high-octave?
+         (>= (ly:pitch-octave pitch) 0))
+
+        (normal-fingering
          (d-whistle-fingering pitch))
+
+        (fingering
+         (if (and high-octave?
+                  (= pitch-class 2))
+             whistle-D-high
+             normal-fingering))
 
         (existing
          (ly:music-property note 'articulations)))
