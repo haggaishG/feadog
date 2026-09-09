@@ -1,4 +1,4 @@
-\include "../whistle-tabs.ly"
+\include "whistle-tabs.ly"
 
 
 % ================================================================
