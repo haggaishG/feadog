@@ -1,3 +1,4 @@
+\version "2.26.0"
 \include "../ĉiea.ly"
 
 \header {
@@ -13,7 +14,7 @@
 \include "../titolo.ly"
 
 melodio = {
-  \compressFullBarRests
+  \compressEmptyMeasures
   \time 4/4
   \key b \minor
   \partial 8. a16 a8 |

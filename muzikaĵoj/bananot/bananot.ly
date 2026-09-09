@@ -1,3 +1,4 @@
+\version "2.26.0"
 \include "../ĉiea.ly"
 
 \header {
@@ -12,7 +13,7 @@
 
 \include "../titolo.ly"
 
-\paper { page-count = #1 }
+%\paper { page-count = #4 }
 melodio = {
   \key b \minor % ⚙?
   \time 4/4
@@ -56,7 +57,7 @@ melodio = {
   d' b ~ b4 r2                       |
   r4 b8 cis' e' fis' e' d' ~          |
   d' b4. r2                          |
-  \compressFullBarRests
+  \compressEmptyMeasures
   R1*2                                |
   \repeat volta 2 {
     r4 a8 cis' e' fis' g' b' ~  |
