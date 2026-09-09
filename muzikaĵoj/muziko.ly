@@ -21,12 +21,15 @@
 
       \omit StringNumber
 
-      % Whistle tabs below staff
-      \override TextScript.staff-padding = #1
+      % ----------------------------------------------------------
+      % Whistle tabs
+      %
+      % Disable LilyPond's automatic vertical placement and put
+      % every tab at exactly the same Y position below the staff.
+      % ----------------------------------------------------------
 
-      % Keep all whistle tabs at a common vertical level
-      \override TextScript.outside-staff-priority = #500
-      \override TextScript.outside-staff-padding = #1
+      \override TextScript.outside-staff-priority = ##f
+      \override TextScript.Y-offset = #-6
 
     } {
 
@@ -55,10 +58,6 @@
 
   \new Staff \with {
 
-    %midiInstrument = #"whistle"
-    %midiInstrument = #"piano"
-    %midiInstrument = #"recorder"
-
     midiInstrument = #"flute"
 
   } {
@@ -80,9 +79,7 @@
       \\
 
       \transpose c' c, {
-
         \akordoj
-
       }
 
     >>
@@ -92,4 +89,5 @@
   \midi { }
 
 }
+
 
