@@ -21,7 +21,12 @@
 
       \omit StringNumber
 
+      % Whistle tabs below staff
       \override TextScript.staff-padding = #1
+
+      % Keep all whistle tabs at a common vertical level
+      \override TextScript.outside-staff-priority = #500
+      \override TextScript.outside-staff-padding = #1
 
     } {
 
