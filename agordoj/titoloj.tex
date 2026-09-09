@@ -1,0 +1,12 @@
+\newcommand{\hesectionfont}{\fontspec[Script=Hebrew]{Alef}}
+\newcommand{\eosectionfont}{\fontspec[Script=Latin]{Droid Sans}}
+
+\newcommand{\eosection}[1]{\section*{\eosectionfont #1}}
+\newcommand{\hesection}[1]{\section*{\hesectionfont #1}}
+
+\newcommand{\dulingvatitolo}[2]{\section*{\LR{\eosectionfont #2}\hfill\RL{\hesectionfont #1}}}
+\newcommand{\dulingvasubtitolo}[2]{\subsection*{\LR{\eosectionfont #2}\hfill\RL{\hesectionfont #1}}}
+
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\textbf{\thesection}}{0.0cm}{}[\titleline{\color{lightgray}\titlerule}]
+\titleformat{\subsection}{\large\bfseries}{\textbf{\thesubsection}}{0.0cm}{}[\titleline{\color{lightgray}\titlerule}]

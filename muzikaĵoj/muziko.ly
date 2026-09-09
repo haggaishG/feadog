@@ -1,0 +1,90 @@
+\include "../whistle-tabs.ly"
+
+
+% ================================================================
+% PDF
+% ================================================================
+
+\score {
+
+  <<
+
+    \new ChordNames {
+      \override ChordNames.ChordName.font-name = #"Vesper Pro"
+      \override ChordNames.ChordName.font-size = #-3
+      \akordoj
+    }
+
+    \new Staff \with {
+
+      \consists "Ambitus_engraver"
+
+      \omit StringNumber
+
+      \override TextScript.staff-padding = #1
+
+    } {
+
+      \transpose c c' {
+
+        \omit Score.MetronomeMark
+
+        \autoDWhistleTabs \melodio
+
+      }
+
+    }
+
+  >>
+
+  \layout { }
+
+}
+
+
+% ================================================================
+% MIDI
+% ================================================================
+
+\score {
+
+  \new Staff \with {
+
+    %midiInstrument = #"whistle"
+    %midiInstrument = #"piano"
+    %midiInstrument = #"recorder"
+
+    midiInstrument = #"flute"
+
+  } {
+
+    \unfoldRepeats
+
+    <<
+
+      \transpose c c' {
+
+        \tempo 4 = 120
+
+        \omit Score.MetronomeMark
+
+        \melodio
+
+      }
+
+      \\
+
+      \transpose c' c, {
+
+        \akordoj
+
+      }
+
+    >>
+
+  }
+
+  \midi { }
+
+}
+

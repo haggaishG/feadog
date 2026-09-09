@@ -1,0 +1,39 @@
+\input{agordoj/agordoj}
+
+\begin{document}
+%%% \newgeometry{margin=0cm}
+%%% \pagestyle{empty}
+%%% \includepdf[pages={-}, scale=1]{kovrilo/antaŭa.pdf}
+%%% %\setcounter{page}{1}
+
+\restoregeometry
+
+%\frontmatter
+\newgeometry{margin=3cm}
+\include{eldona_noto}
+\restoregeometry
+\setHE
+\include{antaŭparolo-he}
+\setEO
+%\input{antaŭparolo-eo}
+%\newgeometry{margin=3cm}
+%\include{enhavo}
+%\restoregeometry
+
+
+
+\newgeometry{margin=0cm}
+\thispagestyle{empty}
+\rotatebox{90}{\includegraphics[height=\linewidth]{kovrilo/malantaŭa.jpg}}
+
+\end{document}
+
+\mainmatter
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0.0pt}
+\pagestyle{fancy}
+\newgeometry{margin=2cm}
+\include{muzikaĵoj}
+\restoregeometry
+
