@@ -79,20 +79,30 @@
 % baseline-skip 0.65 -> distance between holes
 % ================================================================
 
-#(define (whistle-diagram fingering)
+#(define (whistle-diagram fingering high-octave?)
 
-   (let ((holes
-          (map
-           (lambda (closed?)
-             (make-fontsize-markup
-              -5
-              (make-simple-markup
-               (whistle-hole-symbol closed?))))
-           fingering)))
+   (let* ((holes
+           (map
+            (lambda (closed?)
+              (make-fontsize-markup
+               -5
+               (make-simple-markup
+                (whistle-hole-symbol closed?))))
+            fingering))
+
+          (items
+           (if high-octave?
+               (append
+                holes
+                (list
+                 (make-fontsize-markup
+                  -5
+                  (make-simple-markup "+"))))
+               holes)))
 
      (make-override-markup
       '(baseline-skip . 0.65)
-      (make-center-column-markup holes))))
+      (make-center-column-markup items))))
 
 
 % ================================================================
@@ -193,17 +203,19 @@
 % Create tab underneath a note
 % ================================================================
 
-#(define (make-whistle-tab-event fingering)
 
-   (make-music
-    'TextScriptEvent
+#(define (make-whistle-tab-event fingering pitch)
 
-    'direction
-    DOWN
+   (let ((high-octave?
+          (>= (ly:pitch-octave pitch) 0)))
+     (make-music
+      'TextScriptEvent
 
-    'text
-    (whistle-diagram fingering)))
+      'direction
+      DOWN
 
+      'text
+      (whistle-diagram fingering high-octave?))))
 
 % ================================================================
 % Add tab to a NoteEvent
@@ -229,7 +241,7 @@
           (append
            existing
            (list
-            (make-whistle-tab-event fingering)))))
+            (make-whistle-tab-event fingering pitch)))))
 
      note))
 
