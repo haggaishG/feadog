@@ -7,6 +7,7 @@
 %
 % ● = closed hole
 % ○ = open hole
+% H = half-open hole
 %
 % Tabs are automatically placed BELOW the notes.
 % ================================================================
@@ -19,9 +20,10 @@
 %
 % #t = closed
 % #f = open
-%
-% We will correct this table separately.
+% H  = half-open
 % ================================================================
+
+#(define H 'half)
 
 #(define whistle-D
    '(#t #t #t #t #t #t))
@@ -31,8 +33,10 @@
 #(define whistle-D-high
    '(#f #t #t #t #t #t))
 
+% D# / Eb
+% All holes open, bottom hole half-open
 #(define whistle-Eb
-   '(#t #t #t #t #t #f))
+   (list #f #f #f #f #f H))
 
 #(define whistle-E
    '(#t #t #t #t #t #f))
@@ -66,19 +70,29 @@
 
 
 % ================================================================
-% Hole symbol
+% Hole markup
 % ================================================================
 
-#(define (whistle-hole-symbol closed?)
-   (if closed?
-       "●"
-       "○"))
+#(define (whistle-hole-markup hole)
+   (cond
+
+     ((eq? hole #t)
+      (make-simple-markup "●"))
+
+     ((eq? hole #f)
+      (make-simple-markup "○"))
+
+     ((eq? hole H)
+      (make-fontsize-markup
+       -3
+       (make-simple-markup "◒")))
+
+     (else
+      (make-simple-markup "?"))))
 
 
 % ================================================================
 % Create compact six-hole diagram
-%
-% Change these two values if desired:
 %
 % fontsize      -5   -> hole size
 % baseline-skip 0.65 -> distance between holes
@@ -88,11 +102,10 @@
 
    (let* ((holes
            (map
-            (lambda (closed?)
+            (lambda (hole)
               (make-fontsize-markup
                -5
-               (make-simple-markup
-                (whistle-hole-symbol closed?))))
+               (whistle-hole-markup hole)))
             fingering))
 
           (items
@@ -208,7 +221,6 @@
 % Create tab underneath a note
 % ================================================================
 
-
 #(define (make-whistle-tab-event fingering pitch)
 
    (let ((high-octave?
@@ -221,6 +233,7 @@
 
       'text
       (whistle-diagram fingering high-octave?))))
+
 
 % ================================================================
 % Add tab to a NoteEvent
@@ -290,5 +303,4 @@ autoDWhistleTabs =
        #f))
 
     music))
-
 
