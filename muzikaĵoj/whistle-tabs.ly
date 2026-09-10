@@ -36,13 +36,13 @@
 % D# / Eb
 % All holes open, bottom hole half-open
 #(define whistle-Eb
-   (list #f #f #f #f #f H))
+   (list #t #t #t #t #t H))
 
 #(define whistle-E
    '(#t #t #t #t #t #f))
 
 #(define whistle-F
-   '(#t #t #t #f #t #t))
+   (list #t #t #t #t H #f))
 
 #(define whistle-Fis
    '(#t #t #t #t #f #f))
@@ -51,7 +51,7 @@
    '(#t #t #t #f #f #f))
 
 #(define whistle-Ab
-   '(#t #t #f #t #f #f))
+   (list #t #t H #f #f #f))
 
 #(define whistle-A
    '(#t #t #f #f #f #f))
