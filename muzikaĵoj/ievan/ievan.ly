@@ -13,7 +13,7 @@
 \include "../titolo.ly"
 
 #(set-global-staff-size 25)
-\paper { page-count = #1 }
+\paper { % page-count removed }
 melodio = {
     \key e \minor
 	\time 2/4

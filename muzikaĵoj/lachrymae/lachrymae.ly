@@ -12,7 +12,7 @@
 
 \include "../titolo.ly"
 
-\paper { page-count = #2 }
+\paper { % page-count removed }
 flow = {
   \mark "V. 1"
   \time 8/4

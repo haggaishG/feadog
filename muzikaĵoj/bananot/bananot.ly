@@ -13,7 +13,7 @@
 
 \include "../titolo.ly"
 
-%\paper { page-count = #4 }
+%\paper { % page-count removed }
 melodio = {
   \key b \minor % ⚙?
   \time 4/4

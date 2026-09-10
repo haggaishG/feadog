@@ -1,7 +1,7 @@
 \include "../ĉiea.ly"
 
 #(set-global-staff-size 26)
-\paper { page-count = #1 }
+\paper { % page-count removed }
 
 \header {
   titolo-xx     = "HP: a Window to the Past"

@@ -1,6 +1,6 @@
 \include "../ĉiea.ly"
 
-\paper { page-count = #2 }
+\paper { % page-count removed }
 
 \header {
   titolo-xx     = "借りぐらしのアリエッティ"

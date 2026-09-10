@@ -14,7 +14,7 @@
 
 %#(set-global-staff-size 25)
 
-\paper { page-count = #1 }
+\paper { % page-count removed }
 \language "italiano"
 melodio = {
   \key re \major
