@@ -57,7 +57,7 @@
    '(#t #t #f #f #f #f))
 
 #(define whistle-Bb
-   '(#t #f #t #f #f #f))
+   '(#t #f #t #t #t #t))
 
 #(define whistle-B
    '(#t #f #f #f #f #f))
